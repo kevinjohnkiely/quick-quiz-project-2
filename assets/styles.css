@@ -10,5 +10,40 @@
 body {
     font-family: Montserrat, sans-serif;
     font-weight: 300;
-    color: #3a3a3a;
+    color: white;
+    background-image: linear-gradient(to bottom right, #04AA6D, yellow);
+}
+
+header {
+    width: 80%;
+    margin: 0 10% 0 10%;
+    padding: 3rem;
+    color: white;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3rem;
+}
+
+#intro-text {
+    width: 80%;
+    margin: 0 10% 0 10%;
+    padding: 3rem;
+    color: #04AA6D;
+    font-size: 1.2rem;
+    background-color: white;
+    border-radius: 1.4rem;
+    box-shadow: 10px 10px #04AA6D;
+}
+
+#start-quiz {
+    width: 80%;
+    margin: 0 10% 0 10%;
+    padding: 3rem;
+}
+
+#form-control {
+    display: flex;
+    justify-content: space-around;
 }
