@@ -16,7 +16,7 @@
     </header>
 
     <section id="intro-text">
-        <p>Guess the answers to the following random questions and try to score 10 out of 10! Enter an 
+        <p>Guess the answers to the following random questions and try to score 10 out of 10! Enter an
             optional username to get started.
         </p>
     </section>
@@ -24,10 +24,22 @@
     <section id="start-quiz">
         <div id="form-control">
             <label for="enter-username"><strong>Enter Username (optional):</strong></label>
-            <input type="text" id="enter-username" name="enter-username" placeholder="e.g: QuizPlayer123">
+            <input type="text" id="username" name="username" placeholder="e.g: QuizPlayer123">
         </div>
         <button id="go">Start Quiz!</button>
     </section>
+
+    <!-- script to forward entered username to next page -->
+    <script>
+        let theButton = document.getElementById('go');
+        // let x = document.getElementById('name');
+
+        theButton.addEventListener('click', function () {
+            let uName = document.getElementById('username').value;
+            localStorage.setItem('name', uName)
+            window.location.href = 'game.html'
+        })
+    </script>
 
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/5d9b95cc96.js" crossorigin="anonymous"></script>
