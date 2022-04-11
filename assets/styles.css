@@ -96,6 +96,7 @@ select {
 
 #hello {
     font-weight: bold;
+    font-size: 1rem;
     color: #026b44;
 }
 
