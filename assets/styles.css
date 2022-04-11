@@ -17,16 +17,17 @@ body {
 #container {
     width: 80%;
     margin: 0 10% 0 10%;
+    height: 100vh;
 }
 
-header {
+#intro-header {
     padding: 3rem;
     color: white;
     text-align: center;
 }
 
 /* INTRO PAGE STYLES */
-header h1 {
+#intro-header h1 {
     font-size: 3rem;
 }
 
@@ -83,6 +84,21 @@ select {
     background-color: #026b44;
 }
 
+/* GAME PAGE STYLES */
+#game-header {
+    border-bottom: 3px solid white;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 2rem;
+}
+
+#hello {
+    font-weight: bold;
+    color: #026b44;
+}
+
 
 /* MEDIA QUERIES SECTION */
 
@@ -112,4 +128,15 @@ select {
         display: flex;
         flex-direction: column;
     }
+
+    #game-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1.4rem;
+    }
+
+    #game-header h1 {
+        margin-bottom: 1rem;
+    }
+
 }
