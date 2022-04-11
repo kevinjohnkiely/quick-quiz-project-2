@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Quiz | Intro</title>
-    <link rel="stylesheet" href="assets/intro_styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
@@ -24,16 +24,19 @@
 
         <section id="start-quiz">
             <div id="form-control">
-                <label for="enter-username"><strong>Enter Username (optional):</strong></label>
-                <input type="text" id="username" name="username" placeholder="e.g: QuizPlayer123">
+                <label for="username">Enter Username (optional): </label>
+                <input type="text" id="username" name="username" placeholder="e.g: User123">
             </div>
-            <button id="go">Start Quiz!</button>
+            <div id="start-button">
+                <button>Start Quiz!</button>
+            </div>
+            
         </section>
     </div>
 
     <!-- script to forward entered username to next page -->
     <script>
-        let theButton = document.getElementById('go');
+        let theButton = document.getElementById('start-button');
         // let x = document.getElementById('name');
 
         theButton.addEventListener('click', function () {
