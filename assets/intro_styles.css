@@ -14,9 +14,12 @@ body {
     background-image: linear-gradient(to bottom right, #04AA6D, yellow);
 }
 
-header {
+#container {
     width: 80%;
     margin: 0 10% 0 10%;
+}
+
+header {
     padding: 3rem;
     color: white;
     text-align: center;
@@ -27,8 +30,6 @@ header h1 {
 }
 
 #intro-text {
-    width: 80%;
-    margin: 0 10% 0 10%;
     padding: 3rem;
     color: #04AA6D;
     font-size: 1.2rem;
@@ -38,14 +39,10 @@ header h1 {
 }
 
 #start-quiz {
-    width: 80%;
-    margin: 0 10% 0 10%;
     padding: 3rem;
 }
 
 #form-control {
-    width: 80%;
-    margin: 0 10% 0 10%;
     text-align: center;
 }
 
