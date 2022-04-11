@@ -30,14 +30,23 @@
             <div id="start-button">
                 <button id="start">Start Quiz!</button>
             </div>
-            
+
         </section>
     </div>
 
     <!-- script to forward entered username to next page -->
     <script>
         let theButton = document.getElementById('start');
-        // let x = document.getElementById('name');
+        let theUsername = document.getElementById("username")
+        theUsername.focus()
+
+        theUsername.addEventListener('keydown', function () {
+            if (event.key === 'Enter') {
+                let uName = document.getElementById('username').value;
+                localStorage.setItem('name', uName)
+                window.location.href = 'game.html'
+            }
+        })
 
         theButton.addEventListener('click', function () {
             let uName = document.getElementById('username').value;
