@@ -102,6 +102,10 @@ select {
     padding: 2rem;
 }
 
+#nameLogo i {
+    color: yellow;
+}
+
 #hello {
     font-weight: bold;
     font-size: 1.4rem;
@@ -156,7 +160,6 @@ select {
 }
 
 #question-footer {
-    margin-top: 2rem;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -205,6 +208,11 @@ select {
     #question-answers {
         display: flex;
         flex-direction: column;
+    }
+
+    #question-footer {
+        flex-direction: column;
+        align-items: stretch;
     }
 
 }
