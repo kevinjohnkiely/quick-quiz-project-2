@@ -7,8 +7,13 @@ if (myName) {
 }
 
 // Register global variables accessible by all functions in game
-let formattedQuestions = [];
+
 let index = 0;
+let formattedQuestions = [{
+    question: 'What is color of grass?',
+    answers: ['green', 'blue', 'red', 'black'],
+    correctAnswer: 0
+}];
 let correctAnswers = [];
 let wrongAnswers = [];
 
@@ -33,21 +38,35 @@ document.addEventListener("DOMContentLoaded", function () {
 function initGame() {
     // Pre populates DOM with loading message while waiting for data from API
     document.getElementById("question-question").innerText = 'Loading Question 1...';
-
+    displayQuestion(index);
     // Fetch 10 questions from API from general knowledge category
-    fetch("https://opentdb.com/api.php?amount=10&category=9")
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data)
-        }).catch(() => {
-            alert('Error getting data from OpenTDB API...')
-        });
+    // fetch("https://opentdb.com/api.php?amount=10&category=9")
+    //     .then((response) => response.json())
+    //     .then((data) => {
+    //         console.log(data)
+    //         console.log('ind', index)
+    //         // displayQuestion(index);
+    //     }).catch(() => {
+    //         alert('Error getting data from OpenTDB API...')
+    //     });
 
 }
 
-/** This function displays the questions by loading the Opentdb API content into the DOM */
-function displayQuestion() {
+/** This function displays the questions by loading the Opentdb API content into the DOM. 
+ * The index that is initiallized globally determines which question from array will be loaded.
+ */
+function displayQuestion(index) {
+    document.getElementById("question-question").innerText =
+        formattedQuestions[index].question;
 
+    document.getElementById("answer-1").innerHTML =
+        formattedQuestions[index].answers[0];
+    document.getElementById("answer-2").innerHTML =
+        formattedQuestions[index].answers[1];
+    document.getElementById("answer-3").innerHTML =
+        formattedQuestions[index].answers[2];
+    document.getElementById("answer-4").innerHTML =
+        formattedQuestions[index].answers[3];
 }
 
 /** This function checks the selected answer against the correct answer from loaded array of questions */
