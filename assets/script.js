@@ -40,15 +40,15 @@ function initGame() {
     document.getElementById("question-question").innerText = 'Loading Question 1...';
     displayQuestion(index);
     // Fetch 10 questions from API from general knowledge category
-    // fetch("https://opentdb.com/api.php?amount=10&category=9")
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         console.log(data)
-    //         console.log('ind', index)
-    //         // displayQuestion(index);
-    //     }).catch(() => {
-    //         alert('Error getting data from OpenTDB API...')
-    //     });
+    fetch("https://opentdb.com/api.php?amount=10&category=9")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            console.log('ind', index)
+            // displayQuestion(index);
+        }).catch(() => {
+            alert('Error getting data from OpenTDB API...')
+        });
 
 }
 
@@ -72,4 +72,12 @@ function displayQuestion(index) {
 /** This function checks the selected answer against the correct answer from loaded array of questions */
 function checkAnswer() {
 
+}
+
+/** This is a utility function to transform the structure of the data coming from the API. This organises
+ * correct answer and 3 incorrect answers into a single array, thus easier to iterate through and specify
+ * indexs on.
+ */
+function formatData(){
+    
 }
