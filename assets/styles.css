@@ -74,7 +74,7 @@ select {
     align-items: center;
 }
 
-#go {
+#go, #next {
     /* width: 150px; */
     font-size: 1.5rem;
     background-color: #04AA6D;
@@ -87,7 +87,7 @@ select {
 }
 
 
-#go:hover {
+#go:hover, #next:hover {
     background-color: #026b44;
     color: yellow;
 }
@@ -177,7 +177,7 @@ select {
     #intro-text {
         padding: 1.5rem;
         font-size: 1rem;
-        box-shadow: 7px 7px #04AA6D;
+        /* box-shadow: 7px 7px #04AA6D; */
     }
 
 }
