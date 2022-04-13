@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             let answer = this.getAttribute("data-type");
-            // check answers
+            checkAnswer(answer)
         });
     }
 
@@ -89,8 +89,12 @@ function displayQuestion(index) {
 }
 
 /** This function checks the selected answer against the correct answer from loaded array of questions */
-function checkAnswer() {
-
+function checkAnswer(ans) {
+    if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
+        alert("YESSSS!");
+    } else {
+        alert("Wrong answer!")
+    }
 }
 
 /** This is a utility function to transform the structure of the data coming from the API. This organises
