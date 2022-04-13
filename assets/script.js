@@ -9,11 +9,7 @@ if (myName) {
 // Register global variables accessible by all functions in game
 
 let index = 0;
-let formattedQuestions = [{
-    question: 'What is color of grass?',
-    answers: ['green', 'blue', 'red', 'black'],
-    correctAnswer: 0
-}];
+let formattedQuestions = [];
 let correctAnswers = [];
 let wrongAnswers = [];
 
@@ -38,14 +34,17 @@ document.addEventListener("DOMContentLoaded", function () {
 function initGame() {
     // Pre populates DOM with loading message while waiting for data from API
     document.getElementById("question-question").innerText = 'Loading Question 1...';
-    displayQuestion(index);
+    // displayQuestion(index);
     // Fetch 10 questions from API from general knowledge category
-    fetch("https://opentdb.com/api.php?amount=10&category=9")
+    fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
         .then((response) => response.json())
         .then((data) => {
-            console.log(data)
-            console.log('ind', index)
-            // displayQuestion(index);
+            formatData(data.results)
+
+            console.log(formattedQuestions)
+
+            displayQuestion(index);
+
         }).catch(() => {
             alert('Error getting data from OpenTDB API...')
         });
@@ -78,6 +77,21 @@ function checkAnswer() {
  * correct answer and 3 incorrect answers into a single array, thus easier to iterate through and specify
  * indexs on.
  */
-function formatData(){
-    
+function formatData(data) {
+    for (let question of data) {
+        let rand = Math.floor(Math.random() * 4);
+        // console.log(rand)
+        let newObj = {
+            question: question.question,
+            answers: question.incorrect_answers,
+        };
+
+        // insert correct answer in answers array at correct index
+        newObj.answers.splice(rand, 0, question.correct_answer);
+
+        newObj.correctAnswer = rand;
+        // console.log("objjj", newObj);
+        formattedQuestions.push(newObj);
+
+    }
 }
