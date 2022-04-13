@@ -27,9 +27,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // EventListener for restart game button
-    document.getElementById("start-over").addEventListener('click', function(){
+    document.getElementById("start-over").addEventListener('click', function () {
         window.location.href = 'index.html'
     })
+
+    // EventListener for load next question button
+    document.getElementById("next").addEventListener("click", function () {
+        if (index < 9) {
+            index++;
+            displayQuestion(index);
+        } else {
+            alert('game finished!')
+        }
+    });
 
     // Initialize game call
     initGame()
@@ -60,6 +70,7 @@ function initGame() {
  * The index that is initiallized globally determines which question from array will be loaded.
  */
 function displayQuestion(index) {
+    document.getElementById("question-number").innerText = index + 1
     document.getElementById("question-question").innerText =
         formattedQuestions[index].question;
 
@@ -71,6 +82,10 @@ function displayQuestion(index) {
         formattedQuestions[index].answers[2];
     document.getElementById("answer-4").innerHTML =
         formattedQuestions[index].answers[3];
+
+    if (index === 9) {
+        document.getElementById("next").innerHTML = 'Get Result'
+    }
 }
 
 /** This function checks the selected answer against the correct answer from loaded array of questions */
