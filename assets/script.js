@@ -25,3 +25,18 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 })
+
+/** This function initializes the game and populates the 10 questions from the Opentdb API */
+function initGame(){
+
+}
+
+/** This function displays the questions by loading the Opentdb API content into the DOM */
+function displayQuestion(){
+
+}
+
+/** This function checks the selected answer against the correct answer from loaded array of questions */
+function checkAnswer(){
+    
+}
