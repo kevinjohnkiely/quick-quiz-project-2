@@ -17,14 +17,19 @@ let wrongAnswers = [];
  *  and calls the initGame function to load the questions from the API.
  */
 document.addEventListener("DOMContentLoaded", function () {
+    // EventListeners for question buttons
     let buttons = document.getElementsByClassName("question-button");
-
     for (let button of buttons) {
         button.addEventListener("click", function () {
             let answer = this.getAttribute("data-type");
             // check answers
         });
     }
+
+    // EventListener for restart game button
+    document.getElementById("start-over").addEventListener('click', function(){
+        window.location.href = 'index.html'
+    })
 
     // Initialize game call
     initGame()
