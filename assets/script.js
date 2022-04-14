@@ -112,6 +112,7 @@ function checkAnswer(ans) {
 function formatData(data) {
     for (let question of data) {
         let rand = Math.floor(Math.random() * 4);
+        
         // format the question to remove &quot; text
         let formattedQuestion = question.question.replaceAll('&quot;', '"')
         formattedQuestion = formattedQuestion.replaceAll('&#039;', "'")
