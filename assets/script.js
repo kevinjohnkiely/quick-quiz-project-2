@@ -33,11 +33,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // EventListener for load next question button
     document.getElementById("next").addEventListener("click", function () {
+        enableButtons()
         if (index < 9) {
             index++;
             displayQuestion(index);
         } else {
-            alert('game finished!')
+            alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
+            console.log(correctAnswers, wrongAnswers)
         }
     });
 
@@ -88,12 +90,18 @@ function displayQuestion(index) {
     }
 }
 
-/** This function checks the selected answer against the correct answer from loaded array of questions */
+/** This function checks the selected answer against the correct answer from loaded array of questions.
+ *  It also changes the button styles to display the correct answer (green) and incorrect (red)
+ */
 function checkAnswer(ans) {
     if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
         alert("YESSSS! Correct answer!");
+        disableButtons()
+        correctAnswers.push(index);
     } else {
         alert("Wrong answer!")
+        disableButtons()
+        wrongAnswers.push(index);
     }
 }
 
@@ -107,6 +115,7 @@ function formatData(data) {
         // format the question to remove &quot; text
         let formattedQuestion = question.question.replaceAll('&quot;', '"')
         formattedQuestion = formattedQuestion.replaceAll('&#039;', "'")
+        formattedQuestion = formattedQuestion.replaceAll('&rsquo;', "'")
         
         let newObj = {
             question: formattedQuestion,
@@ -120,5 +129,19 @@ function formatData(data) {
         // console.log("objjj", newObj);
         formattedQuestions.push(newObj);
 
+    }
+}
+
+function disableButtons(){
+    let buttons = document.getElementsByClassName("question-button");
+    for (let button of buttons) {
+        // button.setAttribute('disabled')
+        button.disabled = true
+    }
+}
+function enableButtons(){
+    let buttons = document.getElementsByClassName("question-button");
+    for (let button of buttons) {
+        button.removeAttribute('disabled')
     }
 }
