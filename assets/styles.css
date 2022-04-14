@@ -144,7 +144,7 @@ select {
     justify-content: space-around;
 }
 
-.question-button {
+.question-button, #start-over {
     font-size: 1.3rem;
     background-color: white;
     border: 2px solid #026b44;
@@ -155,7 +155,7 @@ select {
     cursor: pointer;
 }
 
-.question-button:hover {
+.question-button:hover, #start-over:hover {
     background-color: #026b44;
 }
 
@@ -164,6 +164,14 @@ select {
     justify-content: space-around;
     align-items: baseline;
 }
+
+/* button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed! important;
+} */
 
 
 /* MEDIA QUERIES SECTION */
@@ -213,6 +221,14 @@ select {
     #question-footer {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    #question-box {
+        margin: 2rem 0 0.8rem 0
+    }
+
+    #start-over, #next {
+        margin: 0.5rem 0 0.5rem 0;
     }
 
 }
