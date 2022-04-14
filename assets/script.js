@@ -59,9 +59,7 @@ function initGame() {
         .then((response) => response.json())
         .then((data) => {
             formatData(data.results)
-
-            console.log(formattedQuestions)
-
+            // console.log(formattedQuestions)
             displayQuestion(index);
 
         }).catch(() => {
@@ -96,15 +94,17 @@ function displayQuestion(index) {
  *  It also changes the button styles to display the correct answer (green) and incorrect (red)
  */
 function checkAnswer(ans) {
-    if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
-        alert("YESSSS! Correct answer!");
+    if (ans && (parseInt(ans) === formattedQuestions[index].correctAnswer)) {
+        // alert("YESSSS! Correct answer!");
         disableButtons(formattedQuestions[index].correctAnswer)
         correctAnswers.push(index);
     } else {
-        alert("Wrong answer!")
+        // alert("Wrong answer!")
         disableButtons(formattedQuestions[index].correctAnswer)
         wrongAnswers.push(index);
     }
+    // re-enable button to click next question
+    document.getElementById("next").removeAttribute("disabled")
 }
 
 /** This is a utility function to transform the structure of the data coming from the API. This organises
@@ -146,6 +146,9 @@ function disableButtons(num){
 }
 function enableButtons(){
     let buttons = document.getElementsByClassName("question-button");
+    // re-enable button to click next question
+    document.getElementById("next").disabled = true
+
     for (let button of buttons) {
         button.removeAttribute('disabled')
         button.classList.remove('correctAnswer')
