@@ -91,7 +91,7 @@ function displayQuestion(index) {
 /** This function checks the selected answer against the correct answer from loaded array of questions */
 function checkAnswer(ans) {
     if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
-        alert("YESSSS!");
+        alert("YESSSS! Correct answer!");
     } else {
         alert("Wrong answer!")
     }
@@ -104,9 +104,12 @@ function checkAnswer(ans) {
 function formatData(data) {
     for (let question of data) {
         let rand = Math.floor(Math.random() * 4);
-        // console.log(rand)
+        // format the question to remove &quot; text
+        let formattedQuestion = question.question.replaceAll('&quot;', '"')
+        formattedQuestion = formattedQuestion.replaceAll('&#039;', "'")
+        
         let newObj = {
-            question: question.question,
+            question: formattedQuestion,
             answers: question.incorrect_answers,
         };
 
