@@ -96,11 +96,11 @@ function displayQuestion(index) {
 function checkAnswer(ans) {
     if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
         alert("YESSSS! Correct answer!");
-        disableButtons()
+        disableButtons(formattedQuestions[index].correctAnswer)
         correctAnswers.push(index);
     } else {
         alert("Wrong answer!")
-        disableButtons()
+        disableButtons(formattedQuestions[index].correctAnswer)
         wrongAnswers.push(index);
     }
 }
@@ -132,16 +132,19 @@ function formatData(data) {
     }
 }
 
-function disableButtons(){
+function disableButtons(num){
     let buttons = document.getElementsByClassName("question-button");
     for (let button of buttons) {
         // button.setAttribute('disabled')
         button.disabled = true
     }
+    buttons[num].removeAttribute('disabled')
+    buttons[num].classList.add("correctAnswer");
 }
 function enableButtons(){
     let buttons = document.getElementsByClassName("question-button");
     for (let button of buttons) {
         button.removeAttribute('disabled')
+        button.classList.remove('correctAnswer')
     }
 }
