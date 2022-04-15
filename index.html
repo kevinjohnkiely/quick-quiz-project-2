@@ -17,27 +17,28 @@
         </header>
 
         <section id="intro-text">
-            <p>Guess the answers to the following random questions and try to score 10 out of 10! Enter an
-                optional username to get started. Skipping a question by clicking the "NEXT QUESTION" button will result
-                in a wrong answer!
+            <p>Guess the answers to the following random questions and try to score 10 out of 10!
+                <strong>Enter a username</strong> to get started.
             </p>
         </section>
 
         <section id="start-quiz">
-            <div id="form-control">
-                <label for="username">Enter Username (optional): </label>
-                <input type="text" id="username" name="username" placeholder="e.g: User123">
-            </div>
-            <div id="start-button">
-                <button id="go">Start Quiz!</button>
-            </div>
-
+            <form action="game.html">
+                <div id="form-control">
+                    <label for="username">Enter Username: </label>
+                    <input type="text" id="username" name="username" placeholder="e.g: User123" required />
+                </div>
+                <div id="start-button">
+                    <!-- <button id="go">Start Quiz!</button> -->
+                    <button type="submit" id="go">GO</button>
+                </div>
+            </form>
         </section>
     </div>
 
     <!-- script to forward entered username to next page -->
     <script>
-        let theButton = document.getElementById('go');
+        let startButton = document.getElementById('go');
         let theUsername = document.getElementById("username")
         theUsername.focus()
 
@@ -45,14 +46,14 @@
             if (event.key === 'Enter') {
                 let uName = document.getElementById('username').value;
                 localStorage.setItem('name', uName)
-                window.location.href = 'game.html'
+                // window.location.href = 'game.html'
             }
         })
 
-        theButton.addEventListener('click', function () {
+        startButton.addEventListener('click', function () {
             let uName = document.getElementById('username').value;
             localStorage.setItem('name', uName)
-            window.location.href = 'game.html'
+            // window.location.href = 'game.html'
         })
     </script>
 
