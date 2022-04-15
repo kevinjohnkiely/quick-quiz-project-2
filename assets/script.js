@@ -38,8 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             index++;
             displayQuestion(index);
         } else {
-            alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
-            console.log(correctAnswers, wrongAnswers)
+            displayReportModal()
         }
     });
 
@@ -92,7 +91,7 @@ function displayQuestion(index) {
  *  It also changes the button styles to display the correct answer (green) and incorrect (red)
  */
 function checkAnswer(ans) {
-    if (ans && (parseInt(ans) === formattedQuestions[index].correctAnswer)) {
+    if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
         // alert("YESSSS! Correct answer!");
         disableButtons(formattedQuestions[index].correctAnswer)
         correctAnswers.push(index);
@@ -133,6 +132,9 @@ function formatData(data) {
     }
 }
 
+/** This function disables the answers after the user has clicked their answer
+ * so they cannot keep choosing buttons to find the right answer
+ */
 function disableButtons(num){
     let buttons = document.getElementsByClassName("question-button");
     for (let button of buttons) {
@@ -142,6 +144,10 @@ function disableButtons(num){
     buttons[num].removeAttribute('disabled')
     buttons[num].classList.add("correctAnswer");
 }
+
+/** This function re-enables the previously disabled answer buttons
+ * so to be ready for the next question in the loop of 10
+ */
 function enableButtons(){
     let buttons = document.getElementsByClassName("question-button");
     // re-enable button to click next question
@@ -151,4 +157,10 @@ function enableButtons(){
         button.removeAttribute('disabled')
         button.classList.remove('correctAnswer')
     }
+}
+
+/** This function displays a report of the correct and incorrect answers achieved by the user */
+function displayReportModal(){
+    alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
+            console.log(correctAnswers, wrongAnswers)
 }
