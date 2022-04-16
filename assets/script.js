@@ -38,7 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
             index++;
             displayQuestion(index);
         } else {
-            displayReportModal()
+            // displayReportModal()
+            var modal = document.getElementById("results-modal");
+            // When the user clicks the button, open the modal 
+            modal.style.display = "block";
+            
         }
     });
 
@@ -111,12 +115,12 @@ function checkAnswer(ans) {
 function formatData(data) {
     for (let question of data) {
         let rand = Math.floor(Math.random() * 4);
-        
+
         // format the question to remove &quot; text
         let formattedQuestion = question.question.replaceAll('&quot;', '"')
         formattedQuestion = formattedQuestion.replaceAll('&#039;', "'")
         formattedQuestion = formattedQuestion.replaceAll('&rsquo;', "'")
-        
+
         let newObj = {
             question: formattedQuestion,
             answers: question.incorrect_answers,
@@ -135,7 +139,7 @@ function formatData(data) {
 /** This function disables the answers after the user has clicked their answer
  * so they cannot keep choosing buttons to find the right answer
  */
-function disableButtons(num){
+function disableButtons(num) {
     let buttons = document.getElementsByClassName("question-button");
     for (let button of buttons) {
         // button.setAttribute('disabled')
@@ -148,7 +152,7 @@ function disableButtons(num){
 /** This function re-enables the previously disabled answer buttons
  * so to be ready for the next question in the loop of 10
  */
-function enableButtons(){
+function enableButtons() {
     let buttons = document.getElementsByClassName("question-button");
     // re-enable button to click next question
     document.getElementById("next").disabled = true
@@ -160,7 +164,32 @@ function enableButtons(){
 }
 
 /** This function displays a report of the correct and incorrect answers achieved by the user */
-function displayReportModal(){
-    alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
-            console.log(correctAnswers, wrongAnswers)
+function displayReportModal() {
+    // alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
+    //         console.log(correctAnswers, wrongAnswers)
+    // Get the modal
+    var modal = document.getElementById("results-modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("next");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }

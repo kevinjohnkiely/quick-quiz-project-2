@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Quick Quiz | Game</title>
     <link rel="stylesheet" href="assets/styles.css">
 </head>
+
 <body>
     <div id="container">
         <header id="game-header">
@@ -30,17 +32,26 @@
                 <button class="question-button" id="answer-3" data-type="2"></button>
                 <button class="question-button" id="answer-4" data-type="3"></button>
             </div>
-            
+
         </section>
         <section id="question-footer">
             <button id="start-over"><i class="fa-solid fa-arrow-rotate-right"></i> Start Over</button>
             <button disabled id="next">Next Question <i class="fa-solid fa-circle-right"></i></button>
         </section>
+        <!-- HTML for modal popup box -->
+        <section id="results-modal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>Some text in the Modal..</p>
+            </div>
+        </section>
     </div>
-    
+
     <!-- custom javascript -->
     <script src="assets/script.js"></script>
     <!-- font awesome script -->
     <script src="https://kit.fontawesome.com/5d9b95cc96.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
