@@ -42,6 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
             var modal = document.getElementById("results-modal");
             // When the user clicks the button, open the modal 
             modal.style.display = "block";
+            var modalText = document.getElementById("modal-text");
+            modalText.innerText = `GAME OVER! You got ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers!`
             
         }
     });

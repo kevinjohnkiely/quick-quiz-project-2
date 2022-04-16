@@ -201,7 +201,8 @@ button[disabled]{
   
   /* Modal Content */
   .modal-content {
-    background-color: #fefefe;
+    background-color: white;
+    color: #026b44;
     margin: auto;
     padding: 2rem;
     border: 3px solid #026b44;
