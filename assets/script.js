@@ -34,17 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // EventListener for load next question button
     document.getElementById("next").addEventListener("click", function () {
         enableButtons()
-        if (index < 9) {
+        if (index < 2) {
             index++;
             displayQuestion(index);
         } else {
-            // displayReportModal()
-            var modal = document.getElementById("results-modal");
-            // When the user clicks the button, open the modal 
-            modal.style.display = "block";
-            var modalText = document.getElementById("modal-text");
-            modalText.innerText = `GAME OVER! You got ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers!`
-            
+            displayReportModal()
         }
     });
 
@@ -58,11 +52,11 @@ function initGame() {
     document.getElementById("question-question").innerText = 'Loading Question 1...';
     // displayQuestion(index);
     // Fetch 10 questions from API from general knowledge category
-    fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
+    fetch("https://opentdb.com/api.php?amount=3&category=9&type=multiple")
         .then((response) => response.json())
         .then((data) => {
             formatData(data.results)
-            // console.log(formattedQuestions)
+            console.log(formattedQuestions)
             displayQuestion(index);
 
         }).catch(() => {
@@ -88,7 +82,7 @@ function displayQuestion(index) {
     document.getElementById("answer-4").innerHTML =
         formattedQuestions[index].answers[3];
 
-    if (index === 9) {
+    if (index === 2) {
         document.getElementById("next").innerHTML = 'Get Result'
     }
 }
@@ -167,31 +161,34 @@ function enableButtons() {
 
 /** This function displays a report of the correct and incorrect answers achieved by the user */
 function displayReportModal() {
-    // alert(`game finished! ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers`)
-    //         console.log(correctAnswers, wrongAnswers)
-    // Get the modal
     var modal = document.getElementById("results-modal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementById("next");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
     // When the user clicks the button, open the modal 
-    btn.onclick = function () {
-        modal.style.display = "block";
+    modal.style.display = "block";
+    document.getElementById("score").innerText = correctAnswers.length
+
+    var modalText = document.getElementById("modal-text");
+    let resultString = `<table>`
+    for (let x = 0; x < formattedQuestions.length; x++) {
+        resultString += `<tr><td>${formattedQuestions[x].question} 
+        <strong>${formattedQuestions[x].answers[formattedQuestions[x].correctAnswer]}</strong></td><td>
+        ${correctAnswers.includes(x) ? 'Yes' : 'No'}</td></tr>`
     }
+    resultString += `</table>`
+    modalText.innerHTML = resultString
+
+    // var modalText = document.getElementById("modal-text");
+    // modalText.innerText = `GAME OVER! You got ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers!`
+
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
+    // span.onclick = function () {
+    //     modal.style.display = "none";
+    // }
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
+    // // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function (event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = "none";
+    //     }
+    // }
 }
