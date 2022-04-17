@@ -148,6 +148,7 @@ select {
 #question-answers {
     display: flex;
     justify-content: space-around;
+    column-gap: 1rem;
 }
 
 .question-button,
@@ -265,6 +266,10 @@ td {
         font-size: 2rem;
     }
 
+    #question-answers {
+        column-gap: 0.6rem;
+    }
+
     #intro-text {
         padding: 1.5rem;
         font-size: 1rem;
@@ -275,6 +280,10 @@ td {
 
 /* For medium screen sizes from 600px wide and below */
 @media screen and (max-width: 600px) {
+
+    #container {
+        height: inherit;
+    }
 
     input[type=text],
     select {
@@ -302,7 +311,7 @@ td {
     }
 
     #question-footer {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: stretch;
     }
 

@@ -1,9 +1,9 @@
 // Get username from localstorage, if no username then display "Guest"
 let myName = localStorage.getItem("name");
 if (myName) {
-    document.getElementById("hello").innerText = myName;
+  document.getElementById("hello").innerText = myName;
 } else {
-    document.getElementById("hello").innerText = 'Guest';
+  document.getElementById("hello").innerText = "Guest";
 }
 
 // Register global variables accessible by all functions in game
@@ -17,96 +17,93 @@ let wrongAnswers = [];
  *  and calls the initGame function to load the questions from the API.
  */
 document.addEventListener("DOMContentLoaded", function () {
-    // EventListeners for question buttons
-    let buttons = document.getElementsByClassName("question-button");
-    for (let button of buttons) {
-        button.addEventListener("click", function () {
-            let answer = this.getAttribute("data-type");
-            checkAnswer(answer)
-        });
-    }
-
-    // EventListener for restart game button
-    document.getElementById("start-over").addEventListener('click', function () {
-        window.location.href = 'index.html'
-    })
-
-    // EventListener for retry game button (same username)
-    document.getElementById("play-again").addEventListener('click', function () {
-        window.location.href = 'game.html'
-    })
-
-    // EventListener for load next question button
-    document.getElementById("next").addEventListener("click", function () {
-        enableButtons()
-        if (index < 9) {
-            index++;
-            displayQuestion(index);
-        } else {
-            displayReportModal()
-        }
+  // EventListeners for question buttons
+  let buttons = document.getElementsByClassName("question-button");
+  for (let button of buttons) {
+    button.addEventListener("click", function () {
+      let answer = this.getAttribute("data-type");
+      checkAnswer(answer);
     });
+  }
 
-    // Initialize game call
-    initGame()
-})
+  // EventListener for restart game button
+  document.getElementById("start-over").addEventListener("click", function () {
+    window.location.href = "index.html";
+  });
+
+  // EventListener for retry game button (same username)
+  document.getElementById("play-again").addEventListener("click", function () {
+    window.location.href = "game.html";
+  });
+
+  // EventListener for load next question button
+  document.getElementById("next").addEventListener("click", function () {
+    enableButtons();
+    if (index < 9) {
+      index++;
+      displayQuestion(index);
+    } else {
+      displayReportModal();
+    }
+  });
+
+  // Initialize game call
+  initGame();
+});
 
 /** This function initializes the game and populates the 10 questions from the Opentdb API */
 function initGame() {
-    // Pre populates DOM with loading message while waiting for data from API
-    document.getElementById("question-question").innerText = 'Loading Question 1...';
-    // displayQuestion(index);
-    // Fetch 10 questions from API from general knowledge category
-    fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
-        .then((response) => response.json())
-        .then((data) => {
-            formatData(data.results)
-            console.log(formattedQuestions)
-            displayQuestion(index);
-
-        }).catch(() => {
-            alert('Error getting data from OpenTDB API...')
-        });
-
+  // Pre populates DOM with loading message while waiting for data from API
+  document.getElementById("question-question").innerText =
+    "Loading Question 1...";
+  // Fetch 10 questions from API from general knowledge category
+  fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
+    .then((response) => response.json())
+    .then((data) => {
+      formatData(data.results);
+      console.log(formattedQuestions);
+      displayQuestion(index);
+    })
+    .catch(() => {
+      alert("Error getting data from OpenTDB API...");
+    });
 }
 
-/** This function displays the questions by loading the Opentdb API content into the DOM. 
+/** This function displays the questions by loading the Opentdb API content into the DOM.
  * The index that is initiallized globally determines which question from array will be loaded.
  */
 function displayQuestion(index) {
-    document.getElementById("question-number").innerText = index + 1
-    document.getElementById("question-question").innerText =
-        formattedQuestions[index].question;
+  document.getElementById("question-number").innerText = index + 1;
+  document.getElementById("question-question").innerText =
+    formattedQuestions[index].question;
 
-    document.getElementById("answer-1").innerHTML =
-        formattedQuestions[index].answers[0];
-    document.getElementById("answer-2").innerHTML =
-        formattedQuestions[index].answers[1];
-    document.getElementById("answer-3").innerHTML =
-        formattedQuestions[index].answers[2];
-    document.getElementById("answer-4").innerHTML =
-        formattedQuestions[index].answers[3];
+  document.getElementById("answer-1").innerHTML =
+    formattedQuestions[index].answers[0];
+  document.getElementById("answer-2").innerHTML =
+    formattedQuestions[index].answers[1];
+  document.getElementById("answer-3").innerHTML =
+    formattedQuestions[index].answers[2];
+  document.getElementById("answer-4").innerHTML =
+    formattedQuestions[index].answers[3];
 
-    if (index === 9) {
-        document.getElementById("next").innerHTML = 'Get Result'
-    }
+  if (index === 9) {
+    document.getElementById("next").innerHTML = "Get Result";
+  }
 }
 
 /** This function checks the selected answer against the correct answer from loaded array of questions.
  *  It also changes the button styles to display the correct answer (green) and incorrect (red)
  */
 function checkAnswer(ans) {
-    if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
-        // alert("YESSSS! Correct answer!");
-        disableButtons(formattedQuestions[index].correctAnswer)
-        correctAnswers.push(index);
-    } else {
-        // alert("Wrong answer!")
-        disableButtons(formattedQuestions[index].correctAnswer)
-        wrongAnswers.push(index);
-    }
-    // re-enable button to click next question
-    document.getElementById("next").removeAttribute("disabled")
+  if (parseInt(ans) === formattedQuestions[index].correctAnswer) {
+    disableButtons(formattedQuestions[index].correctAnswer);
+    correctAnswers.push(index);
+  } else {
+    disableButtons(formattedQuestions[index].correctAnswer);
+    wrongAnswers.push(index);
+  }
+  // re-enable button to click next question
+  document.getElementById("next").removeAttribute("disabled");
 }
 
 /** This is a utility function to transform the structure of the data coming from the API. This organises
@@ -114,86 +111,70 @@ function checkAnswer(ans) {
  * indexs on.
  */
 function formatData(data) {
-    for (let question of data) {
-        let rand = Math.floor(Math.random() * 4);
+  for (let question of data) {
+    let rand = Math.floor(Math.random() * 4);
 
-        // format the question to remove &quot; text
-        let formattedQuestion = question.question.replaceAll('&quot;', '"')
-        formattedQuestion = formattedQuestion.replaceAll('&#039;', "'")
-        formattedQuestion = formattedQuestion.replaceAll('&rsquo;', "'")
+    // format the question to remove &quot; text
+    let formattedQuestion = question.question.replaceAll("&quot;", '"');
+    formattedQuestion = formattedQuestion.replaceAll("&#039;", "'");
+    formattedQuestion = formattedQuestion.replaceAll("&rsquo;", "'");
 
-        let newObj = {
-            question: formattedQuestion,
-            answers: question.incorrect_answers,
-        };
+    let newObj = {
+      question: formattedQuestion,
+      answers: question.incorrect_answers,
+    };
 
-        // insert correct answer in answers array at correct index
-        newObj.answers.splice(rand, 0, question.correct_answer);
+    newObj.answers.splice(rand, 0, question.correct_answer);
 
-        newObj.correctAnswer = rand;
-        // console.log("objjj", newObj);
-        formattedQuestions.push(newObj);
-
-    }
+    newObj.correctAnswer = rand;
+    formattedQuestions.push(newObj);
+  }
 }
 
 /** This function disables the answers after the user has clicked their answer
  * so they cannot keep choosing buttons to find the right answer
  */
 function disableButtons(num) {
-    let buttons = document.getElementsByClassName("question-button");
-    for (let button of buttons) {
-        // button.setAttribute('disabled')
-        button.disabled = true
-    }
-    buttons[num].removeAttribute('disabled')
-    buttons[num].classList.add("correctAnswer");
+  let buttons = document.getElementsByClassName("question-button");
+  for (let button of buttons) {
+    button.disabled = true;
+  }
+  buttons[num].removeAttribute("disabled");
+  buttons[num].classList.add("correctAnswer");
 }
 
 /** This function re-enables the previously disabled answer buttons
  * so to be ready for the next question in the loop of 10
  */
 function enableButtons() {
-    let buttons = document.getElementsByClassName("question-button");
-    // re-enable button to click next question
-    document.getElementById("next").disabled = true
+  let buttons = document.getElementsByClassName("question-button");
+  // re-enable button to click next question
+  document.getElementById("next").disabled = true;
 
-    for (let button of buttons) {
-        button.removeAttribute('disabled')
-        button.classList.remove('correctAnswer')
-    }
+  for (let button of buttons) {
+    button.removeAttribute("disabled");
+    button.classList.remove("correctAnswer");
+  }
 }
 
 /** This function displays a report of the correct and incorrect answers achieved by the user */
 function displayReportModal() {
-    var modal = document.getElementById("results-modal");
-    // When the user clicks the button, open the modal 
-    modal.style.display = "block";
-    document.getElementById("score").innerText = correctAnswers.length
+  var modal = document.getElementById("results-modal");
 
-    var modalText = document.getElementById("modal-text");
-    let resultString = `<table>`
-    for (let x = 0; x < formattedQuestions.length; x++) {
-        resultString += `<tr><td>${formattedQuestions[x].question} 
-        <strong>${formattedQuestions[x].answers[formattedQuestions[x].correctAnswer]}</strong></td><td>
-        ${correctAnswers.includes(x) ? '<i class="fa-solid fa-circle-check">' : '<i class="fa-solid fa-circle-xmark"></i>'} </i></td></tr>`
-    }
-    resultString += `</table>`
-    modalText.innerHTML = resultString
+  modal.style.display = "block";
+  document.getElementById("score").innerText = correctAnswers.length;
 
-    // var modalText = document.getElementById("modal-text");
-    // modalText.innerText = `GAME OVER! You got ${correctAnswers.length} correct and ${wrongAnswers.length} wrong answers!`
-
-
-    // When the user clicks on <span> (x), close the modal
-    // span.onclick = function () {
-    //     modal.style.display = "none";
-    // }
-
-    // // When the user clicks anywhere outside of the modal, close it
-    // window.onclick = function (event) {
-    //     if (event.target == modal) {
-    //         modal.style.display = "none";
-    //     }
-    // }
+  var modalText = document.getElementById("modal-text");
+  let resultString = `<table>`;
+  for (let x = 0; x < formattedQuestions.length; x++) {
+    resultString += `<tr><td>${formattedQuestions[x].question} 
+        <strong>${
+          formattedQuestions[x].answers[formattedQuestions[x].correctAnswer]
+        }</strong></td><td>
+        ${
+          correctAnswers.includes(x) ? '<i class="fa-solid fa-circle-check">' : '<i class="fa-solid fa-circle-xmark"></i>'
+        } </i></td></tr>`;
+  }
+  resultString += `</table>`;
+  modalText.innerHTML = resultString;
 }

@@ -39,22 +39,20 @@
     <!-- script to forward entered username to next page -->
     <script>
         let startButton = document.getElementById('go');
-        let theUsername = document.getElementById("username")
-        theUsername.focus()
+        let theUsername = document.getElementById("username");
+        theUsername.focus();
 
         theUsername.addEventListener('keydown', function () {
             if (event.key === 'Enter') {
                 let uName = document.getElementById('username').value;
-                localStorage.setItem('name', uName)
-                // window.location.href = 'game.html'
+                localStorage.setItem('name', uName);
             }
-        })
+        });
 
         startButton.addEventListener('click', function () {
             let uName = document.getElementById('username').value;
-            localStorage.setItem('name', uName)
-            // window.location.href = 'game.html'
-        })
+            localStorage.setItem('name', uName);
+        });
     </script>
 
     <!-- font awesome script -->
