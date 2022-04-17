@@ -31,10 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = 'index.html'
     })
 
+    // EventListener for retry game button (same username)
+    document.getElementById("play-again").addEventListener('click', function () {
+        window.location.href = 'game.html'
+    })
+
     // EventListener for load next question button
     document.getElementById("next").addEventListener("click", function () {
         enableButtons()
-        if (index < 2) {
+        if (index < 9) {
             index++;
             displayQuestion(index);
         } else {
@@ -52,7 +57,7 @@ function initGame() {
     document.getElementById("question-question").innerText = 'Loading Question 1...';
     // displayQuestion(index);
     // Fetch 10 questions from API from general knowledge category
-    fetch("https://opentdb.com/api.php?amount=3&category=9&type=multiple")
+    fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
         .then((response) => response.json())
         .then((data) => {
             formatData(data.results)
@@ -82,7 +87,7 @@ function displayQuestion(index) {
     document.getElementById("answer-4").innerHTML =
         formattedQuestions[index].answers[3];
 
-    if (index === 2) {
+    if (index === 9) {
         document.getElementById("next").innerHTML = 'Get Result'
     }
 }
@@ -171,7 +176,7 @@ function displayReportModal() {
     for (let x = 0; x < formattedQuestions.length; x++) {
         resultString += `<tr><td>${formattedQuestions[x].question} 
         <strong>${formattedQuestions[x].answers[formattedQuestions[x].correctAnswer]}</strong></td><td>
-        ${correctAnswers.includes(x) ? 'Yes' : 'No'}</td></tr>`
+        ${correctAnswers.includes(x) ? '<i class="fa-solid fa-circle-check">' : '<i class="fa-solid fa-circle-xmark"></i>'} </i></td></tr>`
     }
     resultString += `</table>`
     modalText.innerHTML = resultString

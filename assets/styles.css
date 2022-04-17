@@ -80,7 +80,7 @@ select {
 }
 
 #go,
-#next {
+#next, #play-again {
     /* width: 150px; */
     font-size: 1.5rem;
     background-color: #04AA6D;
@@ -93,7 +93,7 @@ select {
 }
 
 #go:hover,
-#next:hover {
+#next:hover, #play-again:hover {
     background-color: #026b44;
     color: yellow;
 }
@@ -203,7 +203,8 @@ button[disabled] {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-.modal h2 {
+.modal h2,
+h3 {
     text-align: center;
     color: #026b44;
     padding-bottom: 0.8rem;
@@ -213,13 +214,25 @@ button[disabled] {
     color: #04AA6D;
 }
 
+.modal i {
+    font-size: 2rem;
+}
+
+.fa-circle-xmark {
+    color: red;
+}
+
+.fa-circle-check {
+    color: #04AA6D;
+}
+
 /* Modal Content */
 .modal-content {
     background-color: white;
     color: #026b44;
     margin: auto;
     padding: 2rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     border: 3px solid #026b44;
     width: 75%;
     border-radius: 1rem;
@@ -235,7 +248,13 @@ td {
     border: 1px solid #04AA6D;
     text-align: left;
     padding: 0.5rem;
-  }
+}
+
+#button-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /* MEDIA QUERIES SECTION */
