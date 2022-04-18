@@ -106,3 +106,37 @@ The intro page was laid out using full width divs and containers, so the app dis
 The header section of the game page changes from a 2 column layout to 1 column on smaller screens, the name and logo stacking on top of the welcome username text.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/HeaderResponsive.png">
+
+### Game Page - Question Panel
+The game panel section changes from a 4 column layout to just 1 column on the smaller screen sizes, the question boxes stacking on top of each other, with some necessary padding/margin/font-size adjustments to suit the viewport.
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/GamePanelResponsive.png">
+
+### Game Page - Game Controls
+Similar to the previous sections the game controls change from multiple columns to a one column layout on smaller devices. Also, the order of the buttons are reversed, to give a better user experience it was decided that the "Next Question" button should appear above the "Restart" option.
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/GameControlsResponsive.png">
+
+### The Quiz Result Popup Window
+The modal window appears identically to the large screen versions, with the results in a table format. Some scrolling has to be undertaken to see all results and access the "New Game" button, but this was unavoidable due to the amount of information needed to be displayed on the modal.
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ResultModalResponsive.png">
+
+## User Testing
+The quiz app website was tested by another person and they found it a pleasant user experience, reporting no usability issues and found it an easy user journey through the game. They reported the question buttons being clearly available to click when they wanted to answer, and quickly found the "Get Result" button when the 10th question was answered.
+
+### Input Validation
+On the intro page, the input box where the user enters their chosen username is required so that the game can commence. A message appears as follows using HTML5 validation, prompting the user for a username if the button is clicked with an empty text box:
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/InputValidation.png">
+
+### Button Enabling/Disabling
+In order to effectively control the game functions, certain buttons have to be enabled or disabled depending on user interaction. When a question has loaded, the "next question" button is disabled until the user has clicked an answer. When an answer is clicked the "next question" button is re-enabled, but the question buttons are disabled to disallow the user from having a second chance to answer the question. This process is repeated for all 10 questions.
+
+## Validator Testing
+The HTML of the website was tested using the validator at https://validator.w3.org/. The following bug was discovered:
++ Section content with no Heading(h1 - h6) markup. Advised to change section semantic tags to div tags, as the section elements were just effectively placeholders for other content and did not require heading tags.
+
+All of these errors were corrected and now the application passes the validator.
+
+The CSS was tested using the validator at https://jigsaw.w3.org/css-validator/ and no errors were reported.
