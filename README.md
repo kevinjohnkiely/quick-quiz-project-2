@@ -24,11 +24,9 @@ This is a wireframe showing the intended design layout for the landing/intro pag
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Intro%20Page.png">
 
 ### Game Page
-This is the main page of the game that holds all relevant HTML structure and linked JavaScript code that operates the game functionality. The user is welcomed to this page by way of their username appearing at the top bar, and they can begin answering the questions one by one. Clicking on a button displays the correct answer in green and all other answers in red. After answering, all buttons will be disabled so that the user can't re-answer the question, but the "Next Question" button remains to allow the user to continue.
+This wireframe shows the intended design layout for the main game page of the quiz.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Game%20Page.png">
-
-The user continues looping through the questions in this format, until the 10th question. After the final question has been answered, the "Next Question" button changes to a "Get Result" button and clicking on this forwards the user to a "Quiz Report" pop-up window.
 
 ### Result Pop-up Window
 
@@ -44,3 +42,17 @@ This is the landing page that first appears when the user loads the website. Som
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Intro.png">
 
 Clicking on the Start Quiz button will load the main game page which follows at game.html
+
+## The Game Page
+This is the main page of the game that holds all relevant HTML structure and linked JavaScript code that operates the game functionality. The page is composed of the following elements:
+
+### The Header
+This appears at the top of the page and has the game name and logo on the left, and on the right the users entered username appears, welcoming them to the game.
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Header.png">
+
+### The Game Panel
+This panel displays the questions for the quiz and what number that question is out of the total of 10. The 4 possible answers are displayed as buttons underneath, and as shown in the below image, clicking on a button displays the correct answer in green and all other answers in red. After answering, all buttons will be disabled so that the user can't re-answer the question, but the "Next Question" button remains to allow the user to continue.
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/GamePanel.png">
+
+The user continues looping through the questions in this format, until the 10th question. After the final question has been answered, the "Next Question" button changes to a "Get Result" button and clicking on this forwards the user to a "Quiz Report" pop-up window.
