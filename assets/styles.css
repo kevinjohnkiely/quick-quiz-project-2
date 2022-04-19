@@ -11,7 +11,7 @@ body {
     font-family: Montserrat, sans-serif;
     font-weight: 300;
     color: white;
-    background-image: linear-gradient(to bottom right, #04AA6D, yellow);
+    background-image: linear-gradient(to bottom right, #04AA6D, #FFFF00);
 }
 
 #container {
@@ -32,7 +32,7 @@ body {
 }
 
 #intro-header i {
-    color: yellow;
+    color: #FFFF00;
 }
 
 #intro-text {
@@ -95,7 +95,7 @@ select {
 #go:hover,
 #next:hover, #play-again:hover {
     background-color: #026b44;
-    color: yellow;
+    color: #FFFF00;
 }
 
 /* GAME PAGE STYLES */
@@ -109,7 +109,7 @@ select {
 }
 
 #nameLogo i {
-    color: yellow;
+    color: #FFFF00;
 }
 
 #hello {

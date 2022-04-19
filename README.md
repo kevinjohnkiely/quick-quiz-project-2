@@ -157,3 +157,65 @@ There were a couple of issues during development that took me some time to resea
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ErrorFormatting.png">
 
 The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with a single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.
+
+<hr>
+
+# Considerations for Improvements or Enhancements
+
+There are a number of potential improvements for this application which I began to consider during development:
+
++ Allow the user to select a number of questions other than 10, and also perhaps select their own category of questions. This would be achieved by adding extra input boxes or drop down menus on the intro page. Currently, the parameters are hard-coded into the JavaScript with 10 questions picked from General Knowledge category.
+
++ At present there is a very basic data persistance method with Local Storage being used to store the username, but this could be expanded greatly in future by storing more user details in a backend database, and also keep a record of that users scores and how they rank against other users. It would allow popup messages such as "You beat your best score!" to appear on completion of quiz. This would be a realistic enhancement to the application, making it more of a full-stack project in the process.
+
++ The use of CSS animations throughout the app may have given a better user experience, but time constraints prevented this. For example, when a user tries to click the answer buttons on a question already answered, the button would jump and shake, rather than just be disabled as it is at present. This would just further reinforce the rules of the game and what the user is allowed to do.
+
+<hr>
+
+# Deployment
+
+## The steps undertaken to deploy this website to Github Pages is as follows:
+
+1. I accessed the Code Institute template at [https://github.com/Code-Institute-Org/gitpod-full-template] and clicked on the "Use This Template" button.
+2. The next step was to give my repository a suitable name on Github, and create it thereafter.
+3. On the following page I clicked on the green Gitpod button, which is accessible having installed the Gitpod extension to Google Chrome browser.
+4. This created my development environment on Gitpod where I began to push the incremental changes to the live hosted site.
+5. To create the hosted site at Github Pages, I navigated to the Github repo settings tab and found the Github pages dedicated section.
+6. From there in the Source dropdown menu I clicked on "main", and then "Save", from which I was supplied a live link that would be ready in a few minutes. Live link is available here [https://kevinjohnkiely.github.io/quick-quiz-project-2/]
+
+## To run and test this application on your local machine:
+
+1. Navigate to the Github repo at [https://github.com/kevinjohnkiely/quick-quiz-project-2]
+2. Click on the Code button, then Download ZIP.
+3. Extract the zip file to your local machine.
+4. Run the index.html file in any browser of your choice.
+
+<hr>
+
+# Credits
+
+## Code
+
++ The code for the modal popup window came from W3CSchools website tutorial, with modifications to suit my application. The tutorial is linked here [https://www.w3schools.com/howto/howto_css_modals.asp]
++ The code to import the questions by way of an API call came from the OpenTrivia Database API website, with the selected parameters available to modify at this link: [https://opentdb.com/api_config.php]
++ I researched Stack Overflow website to achieve the Local Storage element of this app, as well as finding out how to replace text in a string, and how to forward the user to a new HTML page on button click (window.location.href = "game.html")
+
+All other HTML, CSS and JavaScript was composed by myself.
+
+## Fonts
+
+I used just one font throughout this application, which I linked into the CSS file as an import, the "Montserrat Font" which game from Google Fonts. [https://fonts.google.com/specimen/Montserrat]
+
+## Colours
+
+I adopted a basic 2-colour scheme for this application, using a gradient background to give a bright, cheerful feel for the quiz. The colours were a yellow and a green, with both colours being used throughout the app as button colours also. There is also a darker green used for button rollovers and some text headings.
+
+Colours and Hexadecimal Codes are:
+
++ Yellow #FFFF00
++ Green #04AA6D
++ Dark Green #026B44
+
+## Icons
+
+The icons used for the logo and some of the game buttons come from [https://fontawesome.com/]
