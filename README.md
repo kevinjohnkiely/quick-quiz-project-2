@@ -76,11 +76,12 @@ The following is a list of the various technologies employed to build this proje
 + HTML5 - Hypertext markup language used to give the website its overall structure and semantic value.
 + CSS3 - Cascading Style Sheets used to apply consistent styles across all sections of the application.
 + Google Fonts - Font is embedded into the website by way of importing the correct google font link into the linked CSS file.
-+ Font Awesome - Fontawesome toolkit imported into HTML files and its icons used to show social media links.
++ Font Awesome - Fontawesome toolkit imported into HTML files and its icons used to show button icons and logo.
 + Git, Github & Gitpod - Used to continuously develop and deploy the incremental versions of the application.
 + Balsamiq Wireframes - Downloadable software to create the wireframe mockups.
 + GIMP - GNU Image Manipulation Program, used to resize, crop & optimize the image content for embedding on the website.
 + Local Storage - A JavaScript utility that allows key-value pairs of data to be stored for later use in a web browser.
++ OpenTrivia Database - A web API supplying quiz questions in JSON format.
 
 <hr>
 
@@ -140,3 +141,19 @@ The HTML of the website was tested using the validator at https://validator.w3.o
 All of these errors were corrected and now the application passes the validator.
 
 The CSS was tested using the validator at https://jigsaw.w3.org/css-validator/ and no errors were reported.
+
+## Performance Testing
+I tested the games web page performance using Lighthouse in Google Chrome Developer Tools. Results are seen below:
+
+<-- Lighthouse Image goes here -->
+
+## Errors, Bugs or Issues During Development
+There were a couple of issues during development that took me some time to research and get solutions for:
+
++ Red/Green colours on buttons when displaying answers - Having the user click their selected answer button I wanted to disable all 4 buttons so they can no longer select an answer, this was achieved using the "button:disabled" rule in css, however now all 4 buttons had the same disabled styled (red colour). I wanted one of the buttons to be green and also disabled, and since I could only figure out how to attach one style to the disabled attribute, I found the following css code to add to the correct answer css class, "pointer-events: none;". While this result didn't show the disabled stop-sign style icon appearing on button hover, it still prevented the user from clicking the button & I felt this was a reasonable solution give the timeframe of the project.
+
++ Incorretly formatted text data coming from API - During development I noticed some of the questions coming from the OpenTrivia database were formatted to include the code versions of special characters, one example depicted below:
+
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ErrorFormatting.png">
+
+The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with a single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.

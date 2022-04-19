@@ -115,12 +115,13 @@ function formatData(data) {
     let rand = Math.floor(Math.random() * 4);
 
     // format the question to remove &quot; text
-    let formattedQuestion = question.question.replaceAll("&quot;", '"');
-    formattedQuestion = formattedQuestion.replaceAll("&#039;", "'");
-    formattedQuestion = formattedQuestion.replaceAll("&rsquo;", "'");
+    // let formattedQuestion = question.question.replaceAll("&quot;", '"');
+    // formattedQuestion = formattedQuestion.replaceAll("&#039;", "'");
+    // formattedQuestion = formattedQuestion.replaceAll("&rsquo;", "'");
 
     let newObj = {
-      question: formattedQuestion,
+      // question: formattedQuestion,
+      question: question.question,
       answers: question.incorrect_answers,
     };
 
