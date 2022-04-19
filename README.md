@@ -10,6 +10,51 @@ The main aim of this project is to construct and visually appealing, responsive 
 
 <hr>
 
+# Table of Contents
+
+<!-- TOC start -->
+- [UX (User Experience)](#ux-user-experience)
+  * [User Story](#user-story)
+  * [Wireframes](#wireframes)
+    + [Intro Page](#intro-page)
+    + [Game Page](#game-page)
+    + [Result Pop-up Window](#result-pop-up-window)
+- [Features](#features)
+  * [The Intro Page](#the-intro-page)
+  * [The Game Page](#the-game-page)
+    + [The Header](#the-header)
+    + [The Game Panel](#the-game-panel)
+    + [Game Controls](#game-controls)
+  * [The Quiz Result Popup Window](#the-quiz-result-popup-window)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+  * [Cross-Browser Testing](#cross-browser-testing)
+  * [Compatibility Testing](#compatibility-testing)
+  * [Responsiveness Testing](#responsiveness-testing)
+    + [The Intro Page](#the-intro-page-1)
+    + [Game Page - Header](#game-page-header)
+    + [Game Page - Question Panel](#game-page-question-panel)
+    + [Game Page - Game Controls](#game-page-game-controls)
+    + [The Quiz Result Popup Window](#the-quiz-result-popup-window-1)
+  * [User Testing](#user-testing)
+    + [Input Validation](#input-validation)
+    + [Button Enabling/Disabling](#button-enablingdisabling)
+  * [Validator Testing](#validator-testing)
+  * [Performance Testing](#performance-testing)
+  * [Errors, Bugs or Issues During Development](#errors-bugs-or-issues-during-development)
+- [Considerations for Improvements or Enhancements](#considerations-for-improvements-or-enhancements)
+- [Deployment](#deployment)
+  * [The steps undertaken to deploy this website to Github Pages is as follows:](#the-steps-undertaken-to-deploy-this-website-to-github-pages-is-as-follows)
+  * [To run and test this application on your local machine:](#to-run-and-test-this-application-on-your-local-machine)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Fonts](#fonts)
+  * [Colours](#colours)
+  * [Icons](#icons)
+<!-- TOC end -->
+
+<hr>
+
 # UX (User Experience)
 
 ## User Story
@@ -33,6 +78,8 @@ This wireframe shows the intended design layout for the main game page of the qu
 This wireframe is a mockup of the result modal popup window that appears after the user has answered the 10 questions.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Result%20Page.png">
+
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
 <hr>
 
@@ -69,6 +116,8 @@ This window shows the final score achieved, and a breakdown of the correct and i
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ResultModal.png">
 
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
+
 <hr>
 
 # Technologies Used
@@ -82,6 +131,8 @@ The following is a list of the various technologies employed to build this proje
 + GIMP - GNU Image Manipulation Program, used to resize, crop & optimize the image content for embedding on the website.
 + Local Storage - A JavaScript utility that allows key-value pairs of data to be stored for later use in a web browser.
 + OpenTrivia Database - A web API supplying quiz questions in JSON format.
+
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
 <hr>
 
@@ -158,6 +209,8 @@ There were a couple of issues during development that took me some time to resea
 
 The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with a single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.
 
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
+
 <hr>
 
 # Considerations for Improvements or Enhancements
@@ -169,6 +222,8 @@ There are a number of potential improvements for this application which I began 
 + At present there is a very basic data persistance method with Local Storage being used to store the username, but this could be expanded greatly in future by storing more user details in a backend database, and also keep a record of that users scores and how they rank against other users. It would allow popup messages such as "You beat your best score!" to appear on completion of quiz. This would be a realistic enhancement to the application, making it more of a full-stack project in the process.
 
 + The use of CSS animations throughout the app may have given a better user experience, but time constraints prevented this. For example, when a user tries to click the answer buttons on a question already answered, the button would jump and shake, rather than just be disabled as it is at present. This would just further reinforce the rules of the game and what the user is allowed to do.
+
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
 <hr>
 
@@ -189,6 +244,8 @@ There are a number of potential improvements for this application which I began 
 2. Click on the Code button, then Download ZIP.
 3. Extract the zip file to your local machine.
 4. Run the index.html file in any browser of your choice.
+
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
 <hr>
 
@@ -219,3 +276,5 @@ Colours and Hexadecimal Codes are:
 ## Icons
 
 The icons used for the logo and some of the game buttons come from [https://fontawesome.com/]
+
+[Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
