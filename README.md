@@ -194,9 +194,9 @@ All of these errors were corrected and now the application passes the validator.
 The CSS was tested using the validator at https://jigsaw.w3.org/css-validator/ and no errors were reported.
 
 ## Performance Testing
-I tested the games web page performance using Lighthouse in Google Chrome Developer Tools. Results are seen below:
+I tested the games web page performance using Lighthouse in Google Chrome Developer Tools. I was pleased with the results which ranged from 92 to 100. Results are seen below:
 
-<-- Lighthouse Image goes here -->
+<img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Lighthouse.png">
 
 ## Errors, Bugs or Issues During Development
 There were a couple of issues during development that took me some time to research and get solutions for:
