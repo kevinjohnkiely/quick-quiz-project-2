@@ -57,7 +57,7 @@ function initGame() {
   document.getElementById("question-question").innerText =
     "Loading Question 1...";
   // Fetch 10 questions from API from general knowledge category
-  fetch("https://opentdb.com/api.php?amount=10&category=22&type=multiple")
+  fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
     .then((response) => response.json())
     .then((data) => {
       formatData(data.results);
