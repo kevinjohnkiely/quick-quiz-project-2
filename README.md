@@ -87,7 +87,7 @@ This wireframe is a mockup of the result modal popup window that appears after t
 
 ## The Intro Page
 This is the landing page that first appears when the user loads the website. Some introductory text appears and also a text box underneath that allows the user to enter a username to continue the game, as a personal touch to keep the user engaged. Some form validation is added here to ensure that the user enters a username.
-The username is saved in the web browser using JavaScript local storage, so it can be retrieved later by the next page.
+The username is saved in the web browser using JavaScript local storage, so it can be retrieved later by the next page. The small amount of code needed to achieve this is added inline in script tags on this page.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Intro.png">
 

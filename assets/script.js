@@ -111,13 +111,18 @@ function checkAnswer(ans) {
  * indexs on.
  */
 function formatData(data) {
+
   for (let question of data) {
     let rand = Math.floor(Math.random() * 4);
 
-    // format the question to remove &quot; text
-    let formattedQuestion = question.question.replaceAll("&quot;", '"');
+    // format the question to remove special character codes 
+
+    let formattedQuestion = question.question.replaceAll("&quot;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&#039;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&rsquo;", "'");
+    formattedQuestion = formattedQuestion.replaceAll("&lsquo;", "'");
+    formattedQuestion = formattedQuestion.replaceAll("&ldquo;", "'");
+    formattedQuestion = formattedQuestion.replaceAll("&rdquo;", "'");
 
     let newObj = {
       question: formattedQuestion,
