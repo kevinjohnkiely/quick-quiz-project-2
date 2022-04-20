@@ -57,11 +57,10 @@ function initGame() {
   document.getElementById("question-question").innerText =
     "Loading Question 1...";
   // Fetch 10 questions from API from general knowledge category
-  fetch("https://opentdb.com/api.php?amount=10&category=9&type=multiple")
+  fetch("https://opentdb.com/api.php?amount=10&category=22&type=multiple")
     .then((response) => response.json())
     .then((data) => {
       formatData(data.results);
-      console.log(formattedQuestions);
       displayQuestion(index);
     })
     .catch(() => {
@@ -124,8 +123,23 @@ function formatData(data) {
     formattedQuestion = formattedQuestion.replaceAll("&ldquo;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&rdquo;", "'");
 
+    // Remove extra long words from question (e.g. Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch)
+    let slicedQuestion = formattedQuestion.split(" ")
+    let slicedArray = []
+
+    for(let x=0; x < slicedQuestion.length; x++) {
+      if(slicedQuestion[x].length > 15) {
+        let slicedWord = slicedQuestion[x].slice(0, 15) + '(...)'
+        slicedArray.push(slicedWord)
+      } else {
+        slicedArray.push(slicedQuestion[x])
+      }
+    }
+
+    let newFormattedQuestion = slicedArray.join(" ")
+    
     let newObj = {
-      question: formattedQuestion,
+      question: newFormattedQuestion,
       answers: question.incorrect_answers,
     };
 
