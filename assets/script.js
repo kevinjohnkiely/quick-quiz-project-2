@@ -122,6 +122,7 @@ function formatData(data) {
     formattedQuestion = formattedQuestion.replaceAll("&lsquo;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&ldquo;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&rdquo;", "'");
+    formattedQuestion = formattedQuestion.replaceAll("&amp;", "&");
 
     // Remove extra long words from question (e.g. Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch)
     let slicedQuestion = formattedQuestion.split(" ")
