@@ -2,9 +2,9 @@
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Screenshot.png">
 
-This is a browser based quiz game constructed with JavaScript, CSS3 and HTML5. It allows the user to answer 10 randomly chosen questions and obtain their score at the games end, and receive a report on what questions they answered incorrectly. The game is targeted towards a broad section of people who are interested in general knowledge quizzes.
+This is a browser based quiz game constructed with JavaScript, CSS3 and HTML5. It allows the user to answer 10 randomly chosen questions and obtain their score at the end of the quiz, and receive a report on what questions they answered incorrectly. The game is targeted towards a broad section of people who are interested in general knowledge quizzes.
 
-The main aim of this project is to construct and visually appealing, responsive and accessible browser game that ticks all the boxes of a modern user experience, and display how such an application can be constructed using JavaScript.
+The main aim of this project is to construct a visually appealing, responsive and accessible browser game that ticks all the boxes of a modern user experience, and display how such an application can be constructed using JavaScript.
 
 [Live link to website](https://kevinjohnkiely.github.io/quick-quiz-project-2/)
 
@@ -97,7 +97,7 @@ Clicking on the Start Quiz button will load the main game page which follows at 
 This is the main page of the game that holds all relevant HTML structure and linked JavaScript code that operates the game functionality. The page is composed of the following elements:
 
 ### The Header
-This appears at the top of the page and has the game name and logo on the left, and on the right the users entered username appears, welcoming them to the game.
+This appears at the top of the page and has the game name and logo on the left, and on the right the user's entered username appears, welcoming them to the game.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Header.png">
 
@@ -112,7 +112,7 @@ This section holds the 2 game control buttons, a button to restart the game and 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/GameControls.png">
 
 ## The Quiz Result Popup Window
-This window shows the final score achieved, and a breakdown of the correct and incorrect answers. The user has the option of clicking "Play Again" button to try another quiz.
+This window shows the final score achieved, and a breakdown of the correct and incorrect answers. The user has the option of clicking the "Play Again" button to try another quiz.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ResultModal.png">
 
@@ -128,7 +128,7 @@ The following is a list of the various technologies employed to build this proje
 + Font Awesome - Fontawesome toolkit imported into HTML files and its icons used to show button icons and logo.
 + Git, Github & Gitpod - Used to continuously develop and deploy the incremental versions of the application.
 + Balsamiq Wireframes - Downloadable software to create the wireframe mockups.
-+ GIMP - GNU Image Manipulation Program, used to resize, crop & optimize the image content for embedding on the website.
++ GIMP - GNU Image Manipulation Program, used to resize, crop & optimise the image content for embedding on this document.
 + Local Storage - A JavaScript utility that allows key-value pairs of data to be stored for later use in a web browser.
 + OpenTrivia Database - A web API supplying quiz questions in JSON format.
 
@@ -142,10 +142,10 @@ The following is a list of the various technologies employed to build this proje
 The application was functionally tested across the 3 web browsers, Google Chrome, Microsoft Edge & Mozilla Firefox. The site loaded consistently across all 3 and no issues were detected on any browser.
 
 ## Compatibility Testing
-I tested the site across differing devices, such as the Nokia 4.2 smartphone with Android 11, Lenovo Ideapad 3 laptop with different browsers on Windows 11, and on a Dell Studio laptop with different browsers on a Linux Mint operating system. No issues were reported between these devices.
+I tested the site across different devices, such as the Nokia 4.2 smartphone with Android 11, Lenovo Ideapad 3 laptop with different browsers on Windows 11, and on a Dell Studio laptop with different browsers on a Linux Mint operating system. No issues were reported between these devices.
 
 ## Responsiveness Testing
-During development of this application, I regularly tested the responsiveness of the site using Google Chromes Developer tools. In my CSS media query rules, I used 2 separate break points to design the site for different screen sizes.
+During development of this application, I regularly tested the responsiveness of the site using Google Chrome's Developer tools. In my CSS media query rules, I used 2 separate breakpoints to design the site for different screen sizes.
 + 800px width and below (medium screen size)
 + 600px width and below (small screen size)
 
@@ -170,7 +170,7 @@ Similar to the previous sections the game controls change from multiple columns 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/GameControlsResponsive.png">
 
 ### The Quiz Result Popup Window
-The modal window appears identically to the large screen versions, with the results in a table format. Some scrolling has to be undertaken to see all results and access the "New Game" button, but this was unavoidable due to the amount of information needed to be displayed on the modal.
+The modal window appears identically to the large screen versions, with the results in a table format. Some scrolling had to be undertaken to see all results and access the "New Game" button, but this was unavoidable due to the amount of information needed to be displayed on the modal.
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ResultModalResponsive.png">
 
@@ -183,7 +183,7 @@ On the intro page, the input box where the user enters their chosen username is 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/InputValidation.png">
 
 ### Button Enabling/Disabling
-In order to effectively control the game functions, certain buttons have to be enabled or disabled depending on user interaction. When a question has loaded, the "next question" button is disabled until the user has clicked an answer. When an answer is clicked the "next question" button is re-enabled, but the question buttons are disabled to disallow the user from having a second chance to answer the question. This process is repeated for all 10 questions.
+In order to effectively control the game functions, certain buttons have to be enabled or disabled depending on user interaction. When a question has been loaded, the "next question" button is disabled until the user has clicked an answer. When an answer is clicked the "next question" button is re-enabled, but the question buttons are disabled to disallow the user from having a second chance to answer the question. This process is repeated for all 10 questions.
 
 ## Validator Testing
 The HTML of the website was tested using the validator at https://validator.w3.org/. The following bug was discovered:
@@ -194,7 +194,7 @@ All of these errors were corrected and now the application passes the validator.
 The CSS was tested using the validator at https://jigsaw.w3.org/css-validator/ and no errors were reported.
 
 ## Performance Testing
-I tested the games web page performance using Lighthouse in Google Chrome Developer Tools. I was pleased with the results which ranged from 92 to 100. Results are seen below:
+I tested the game's web page performance using Lighthouse in Google Chrome Developer Tools. I was pleased with the results which ranged from 92 to 100. Results are seen below:
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/Lighthouse.png">
 
@@ -203,11 +203,11 @@ There were a couple of issues during development that took me some time to resea
 
 + Red/Green colours on buttons when displaying answers - Having the user click their selected answer button I wanted to disable all 4 buttons so they can no longer select an answer, this was achieved using the "button:disabled" rule in css, however now all 4 buttons had the same disabled styled (red colour). I wanted one of the buttons to be green and also disabled, and since I could only figure out how to attach one style to the disabled attribute, I found the following css code to add to the correct answer css class, "pointer-events: none;". While this result didn't show the disabled stop-sign style icon appearing on button hover, it still prevented the user from clicking the button & I felt this was a reasonable solution give the timeframe of the project.
 
-+ Incorretly formatted text data coming from API - During development I noticed some of the questions coming from the OpenTrivia database were formatted to include the code versions of special characters, one example depicted below:
++ Incorrectly formatted text data coming from API - During development I noticed some of the questions coming from the OpenTrivia database were formatted to include the code versions of special characters, one example depicted below:
 
 <img src="https://github.com/kevinjohnkiely/quick-quiz-project-2/blob/main/screenshotsWireframes/ErrorFormatting.png">
 
-The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with a single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.
+The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.
 
 [Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
@@ -217,9 +217,9 @@ The solution I achieved, although not an exhaustive one at present, was to const
 
 There are a number of potential improvements for this application which I began to consider during development:
 
-+ Allow the user to select a number of questions other than 10, and also perhaps select their own category of questions. This would be achieved by adding extra input boxes or drop down menus on the intro page. Currently, the parameters are hard-coded into the JavaScript with 10 questions picked from General Knowledge category.
++ Allow the user to select a number of questions other than 10, and also perhaps select their own category of questions. This would be achieved by adding extra input boxes or drop down menus on the intro page. Currently, the parameters are hard-coded into the JavaScript with 10 questions picked from the General Knowledge category.
 
-+ At present there is a very basic data persistance method with Local Storage being used to store the username, but this could be expanded greatly in future by storing more user details in a backend database, and also keep a record of that users scores and how they rank against other users. It would allow popup messages such as "You beat your best score!" to appear on completion of quiz. This would be a realistic enhancement to the application, making it more of a full-stack project in the process.
++ At present there is a very basic data persistence method with Local Storage being used to store the username, but this could be expanded greatly in future by storing more user details in a backend database, and also keep a record of that users scores and how they rank against other users. It would allow popup messages such as "You beat your best score!" to appear on completion of the quiz. This would be a realistic enhancement to the application, making it more of a full-stack project in the process.
 
 + The use of CSS animations throughout the app may have given a better user experience, but time constraints prevented this. For example, when a user tries to click the answer buttons on a question already answered, the button would jump and shake, rather than just be disabled as it is at present. This would just further reinforce the rules of the game and what the user is allowed to do.
 
@@ -261,7 +261,7 @@ All other HTML, CSS and JavaScript was composed by myself.
 
 ## Fonts
 
-I used just one font throughout this application, which I linked into the CSS file as an import, the "Montserrat Font" which game from Google Fonts. [https://fonts.google.com/specimen/Montserrat]
+I used just one font throughout this application, which I linked into the CSS file as an import, the "Montserrat Font" which came from Google Fonts. [https://fonts.google.com/specimen/Montserrat]
 
 ## Colours
 

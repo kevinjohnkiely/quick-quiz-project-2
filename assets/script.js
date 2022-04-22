@@ -1,4 +1,4 @@
-// Get username from localstorage, if no username then display "Guest"
+// Get username from localstorage, if no username (user navigates directly to game.html page) then display "Guest"
 let myName = localStorage.getItem("name");
 if (myName) {
   document.getElementById("hello").innerText = myName;
@@ -6,8 +6,7 @@ if (myName) {
   document.getElementById("hello").innerText = "Guest";
 }
 
-// Register global variables accessible by all functions in game
-
+// Register global variables accessible by all functions in game, index controls the game iteration
 let index = 0;
 let formattedQuestions = [];
 let correctAnswers = [];
@@ -69,7 +68,7 @@ function initGame() {
 }
 
 /** This function displays the questions by loading the Opentdb API content into the DOM.
- * The index that is initiallized globally determines which question from array will be loaded.
+ * The index that is initiallized globally and passed in, determines which question from array will be loaded.
  */
 function displayQuestion(index) {
   document.getElementById("question-number").innerText = index + 1;
@@ -91,6 +90,7 @@ function displayQuestion(index) {
 }
 
 /** This function checks the selected answer against the correct answer from loaded array of questions.
+ *  The answer variable is passed in from the event listener on the buttons, coming from the data-type attribute.
  *  It also changes the button styles to display the correct answer (green) and incorrect (red)
  */
 function checkAnswer(ans) {
@@ -107,15 +107,12 @@ function checkAnswer(ans) {
 
 /** This is a utility function to transform the structure of the data coming from the API. This organises
  * correct answer and 3 incorrect answers into a single array, thus easier to iterate through and specify
- * indexs on.
+ * indexs on them.
  */
 function formatData(data) {
 
   for (let question of data) {
-    let rand = Math.floor(Math.random() * 4);
-
-    // format the question to remove special character codes 
-
+    // format the question to remove special character codes
     let formattedQuestion = question.question.replaceAll("&quot;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&#039;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&rsquo;", "'");
@@ -124,13 +121,13 @@ function formatData(data) {
     formattedQuestion = formattedQuestion.replaceAll("&rdquo;", "'");
     formattedQuestion = formattedQuestion.replaceAll("&amp;", "&");
 
-    // Remove extra long words from question (e.g. Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch)
+    // Truncate extremely long words from question (e.g. Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch)
     let slicedQuestion = formattedQuestion.split(" ")
     let slicedArray = []
 
-    for(let x=0; x < slicedQuestion.length; x++) {
-      if(slicedQuestion[x].length > 15) {
-        let slicedWord = slicedQuestion[x].slice(0, 15) + '(...)'
+    for (let x = 0; x < slicedQuestion.length; x++) {
+      if (slicedQuestion[x].length > 15) {
+        let slicedWord = slicedQuestion[x].slice(0, 15) + "(...)'"
         slicedArray.push(slicedWord)
       } else {
         slicedArray.push(slicedQuestion[x])
@@ -138,21 +135,24 @@ function formatData(data) {
     }
 
     let newFormattedQuestion = slicedArray.join(" ")
-    
-    let newObj = {
+
+    let newQuestionObject = {
       question: newFormattedQuestion,
       answers: question.incorrect_answers,
     };
 
-    newObj.answers.splice(rand, 0, question.correct_answer);
+    // Randomly set index position of correct answer in answers array which matches to correctAnswer property in same object
+    let rand = Math.floor(Math.random() * 4);
+    newQuestionObject.answers.splice(rand, 0, question.correct_answer);
+    newQuestionObject.correctAnswer = rand;
 
-    newObj.correctAnswer = rand;
-    formattedQuestions.push(newObj);
+    formattedQuestions.push(newQuestionObject);
   }
 }
 
 /** This function disables the answers after the user has clicked their answer
- * so they cannot keep choosing buttons to find the right answer
+ * so they cannot keep choosing buttons to find the right answer. It takes in the
+ * index number of the question button that was chosen.
  */
 function disableButtons(num) {
   let buttons = document.getElementsByClassName("question-button");
