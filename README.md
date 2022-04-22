@@ -209,6 +209,8 @@ There were a couple of issues during development that took me some time to resea
 
 The solution I achieved, although not an exhaustive one at present, was to construct a new function called formatData, which would find and replace these codes with single or double quotes so the question would display correctly. This will probably be an on-going process to replace these codes as occasionally a question will still slip through unformatted so it is something to keep an eye on going forward.
 
++ One extremely long word would randomly appear in the questions and would break the CSS by overflowing it (Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch). The solution I arrived at was to break the incoming sentence apart, loop through the words to limit size to 15 characters, and put the result back into the application.
+
 [Back to Table of Contents](https://github.com/kevinjohnkiely/quick-quiz-project-2#table-of-contents)
 
 <hr>
